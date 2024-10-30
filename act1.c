@@ -15,7 +15,6 @@ int main() {
     Traffic data[8] = {data1, data2, data3, data4, data5, data6, data7, data8};
 
     insertToFile(data, sizeof(data) / sizeof(data[0]));
-    insertToCommaSeparatedFile(data, sizeof(data) / sizeof(data[0])); //<-----------------------------ACTIVITY 2
     printf("%-20s%-20s%-20s%-20s\n", "Priority", "Lane", "Path", "Time(s)");
     readFromFile();
 

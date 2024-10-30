@@ -51,7 +51,7 @@ int totalTime(POT* heap);//<-----------------------------------------------ACTIV
 
 // File handling
 void insertToFile(Traffic data[], int size);
-void insertToCommaSeparatedFile(Traffic data[], int size); //<------------------------ACTIVITY 2
+void insertToCommaSeparatedFile(Traffic data[], int size,char scenario[]); //<------------------------ACTIVITY 2
 void readFromFile();
 void insertToMinHeap(POT* heap);
 
@@ -157,10 +157,11 @@ void insertToFile(Traffic data[], int size) {
     fclose(fp);
 }
 
-void insertToCommaSeparatedFile(Traffic data[], int size) { //<--------------------------------ACTIVITY 2
-    FILE* fp = fopen("traffic_result.dat", "w");
+void insertToCommaSeparatedFile(Traffic data[], int size, char scenario[]) { //<--------------------------------ACTIVITY 2
+    FILE* fp = fopen("traffic_result.dat", "a");
 
     if (fp != NULL) {
+        fprintf(fp, "%s\n", scenario);
         for (int i = 0; i < size; i++) {
             fprintf(fp, "%d,%s,%s,%d\n", data[i].priority, data[i].Lane, data[i].Path, data[i].time);
         }
